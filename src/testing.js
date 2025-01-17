@@ -48,3 +48,39 @@ let searchName = "Nan";
 let employeeInfo = findEmployee(employees, searchName);
 console.log(employeeInfo);
 
+
+//ข้อ3
+const fs = require('fs'); 
+
+const rawData = fs.readFileSync('F:\\projects\\laundry-shop\\MockupData.json', 'utf-8'); 
+const jsonData = JSON.parse(rawData);
+
+
+function extractXY(data) {
+    const xArray = []; 
+    const yArray = []; 
+
+
+    data.forEach(item => {
+
+        if (!xArray.includes(item.x)) {
+            xArray.push(item.x);
+        }
+
+ 
+        if (!yArray.includes(item.y)) {
+            yArray.push(item.y);
+        }
+    });
+
+    return {
+        x: xArray, 
+        y: yArray 
+    };
+}
+
+const runresult = extractXY(jsonData.mockUpData);
+
+
+console.log("ผลลัพธ์ x และ y:");
+console.log(runresult);
