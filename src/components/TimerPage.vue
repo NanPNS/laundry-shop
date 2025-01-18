@@ -82,13 +82,13 @@ export default {
       paidAmount: 0,
       coins: [1, 2, 5, 10],
       isPayingExtra: false,
-      showNotification: false, // สำหรับควบคุมการแสดงผลแจ้งเตือน
-      notificationMessage: "", // ข้อความในแจ้งเตือน
+      showNotification: false, 
+      notificationMessage: "", 
     };
   },
   computed: {
     progressPercentage() {
-      const total = 1800; // Total time in seconds (30 minutes)
+      const total = 1800; 
       return Math.floor(((total - this.timeRemaining) / total) * 100);
     },
   },
@@ -101,12 +101,12 @@ export default {
         if (!this.isPaused && this.timeRemaining > 0) {
           this.timeRemaining--;
 
-          // แจ้งเตือนเมื่อเหลือ 1 นาที
+        
           if (this.timeRemaining === 60) {
             this.showAlert("เหลือเวลาอีก 1 นาที");
           }
 
-          // แจ้งเตือนเมื่อหมดเวลา
+        
           if (this.timeRemaining === 0) {
             this.showAlert("เครื่องทำงานเสร็จแล้ว");
             clearInterval(this.intervalId);
